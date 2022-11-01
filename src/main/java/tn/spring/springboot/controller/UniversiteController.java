@@ -9,13 +9,20 @@ import tn.spring.springboot.service.IserviceUniversite;
 import java.util.List;
 
 @RestController
-@Tag(name = "University Management")
+@Tag(name = "University Management :P ")
 
 @RequestMapping("/Universite")
 public class UniversiteController {
 
     @Autowired
     IserviceUniversite iserviceUniversite;
+
+
+    @GetMapping("/addDepToUni/{idDep}/{idUni}")
+    public void assignDepartementtoUniversity(@PathVariable("idDep")Integer idDep,@PathVariable("idUni") Integer idUniversite) {
+
+        iserviceUniversite.assignDepartementtoUniversity(idDep, idUniversite);
+    }
 
     @GetMapping("/getAll")
     @ResponseBody
