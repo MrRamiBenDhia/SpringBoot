@@ -113,6 +113,13 @@ public class ServiceEtudiant implements IserviceEtudiant {
     }
 
     @Override
+    public List<Etudiant> getEtudiantsByDepartement(Integer idDepartement) {
+
+//        er.findAll(x=>{})
+        return null;
+    }
+
+    @Override
     public void removeEtudiant(Integer idEtudiant) {
         er.deleteById(idEtudiant);
     }

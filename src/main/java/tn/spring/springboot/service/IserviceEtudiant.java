@@ -19,5 +19,10 @@ public interface IserviceEtudiant {
     Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe);
     Etudiant addEtudiantToEquipeAndContract(Integer idE, Integer idContrat, Integer idEquipe);
 
+
+
+    List<Etudiant> getEtudiantsByDepartement (Integer idDepartement);
+
+
     void removeEtudiant(Integer idEtudiant);
 }

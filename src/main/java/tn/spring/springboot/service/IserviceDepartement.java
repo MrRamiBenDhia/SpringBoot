@@ -1,6 +1,7 @@
 package tn.spring.springboot.service;
 
 import tn.spring.springboot.Entity.Departement;
+import tn.spring.springboot.Entity.Etudiant;
 
 import java.util.List;
 
@@ -14,4 +15,7 @@ public interface IserviceDepartement {
     Departement retrieveDepartement (Integer idDepart);
 
     void removeDepartement(Integer idEtudiant);
+
+
+    List<Departement> retrieveDepartementsByUniversite(Integer idUniversite);
 }

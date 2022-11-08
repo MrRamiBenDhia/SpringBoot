@@ -3,6 +3,7 @@ package tn.spring.springboot.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.spring.springboot.Entity.Departement;
+import tn.spring.springboot.Entity.Etudiant;
 import tn.spring.springboot.reposotry.DepartementRepo;
 
 import java.util.List;
@@ -37,4 +38,10 @@ public class ServiceDepartement implements IserviceDepartement{
     public void removeDepartement(Integer idEtudiant) {
 
     }
+
+    @Override
+    public List<Departement> retrieveDepartementsByUniversite(Integer idUniversite) {
+        return null;
+    }
+
 }
