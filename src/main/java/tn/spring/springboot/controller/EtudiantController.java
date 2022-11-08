@@ -20,13 +20,26 @@ public class EtudiantController {
 
     @Autowired
     IserviceEtudiant iserviceEtudiant;
-    IserviceDepartement iserviceDepartement;
-
-    @GetMapping("/addEtudiantToDepartement/{idE}/{idD}")
+    @PutMapping("/addEtudiantToDepartement/{idE}/{idD}")
     @ResponseBody
     public boolean assignEtudiantToDepartement (@PathVariable("idE")Integer etudiantId, @PathVariable("idD")Integer departementId){
 
        iserviceEtudiant.assignEtudiantToDepartement(etudiantId,departementId);
+
+       return true;
+    }
+    @PostMapping("/addEtudiant To Equipe And Contrat Ramyyy/{idE}/{idEqu}/{idCntrat}")
+    @ResponseBody
+    public boolean addEtudiantToEquipeAndContract (@PathVariable("idE")Integer etudiantId, @PathVariable("idEqu")Integer EquipeId,@PathVariable("idCntrat") Integer idContrat){
+        iserviceEtudiant.addEtudiantToEquipeAndContract(etudiantId,EquipeId,idContrat);
+        return true;
+    }
+
+    @PostMapping("/addAndAssignEtudiantToEquipeAndContract/{E}/{idEqu}/{idCntrat}")
+    @ResponseBody
+    public boolean addAndAssignEtudiantToEquipeAndContract (@PathVariable("E")Etudiant etudiant, @PathVariable("idEqu")Integer EquipeId,@PathVariable("idCntrat") Integer idContrat){
+//        Etudiant e = iserviceEtudiant.retrieveEtudiant(etudiantId);
+       iserviceEtudiant.addAndAssignEtudiantToEquipeAndContract(etudiant,EquipeId,idContrat);
 
        return true;
     }
@@ -40,7 +53,7 @@ public class EtudiantController {
 
     @GetMapping("/get/{id}")
     @ResponseBody
-    public Etudiant getById(@PathVariable("id") Long id) {
+    public Etudiant getById(@PathVariable("id")         Long id) {
         return iserviceEtudiant.retrieveEtudiant(Math.toIntExact(id));
     }
 

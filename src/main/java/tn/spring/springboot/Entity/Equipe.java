@@ -1,5 +1,6 @@
 package tn.spring.springboot.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -20,7 +21,9 @@ public class Equipe implements Serializable {
     @Enumerated(EnumType.STRING)
      Niveau niveau;
     @ManyToMany(cascade = CascadeType.ALL,mappedBy = "equipes")
+    @JsonIgnore
     private Set<Etudiant> etudiants;
     @OneToOne
+    @JsonIgnore
     private DetailEquipe detailEquipe;
 }

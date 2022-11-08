@@ -12,4 +12,6 @@ public interface IserviceDepartement {
     Departement updateDepartement (Departement d);
 
     Departement retrieveDepartement (Integer idDepart);
+
+    void removeDepartement(Integer idEtudiant);
 }

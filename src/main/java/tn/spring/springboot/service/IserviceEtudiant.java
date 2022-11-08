@@ -17,6 +17,7 @@ public interface IserviceEtudiant {
 
 
     Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe);
+    Etudiant addEtudiantToEquipeAndContract(Integer idE, Integer idContrat, Integer idEquipe);
 
     void removeEtudiant(Integer idEtudiant);
 }

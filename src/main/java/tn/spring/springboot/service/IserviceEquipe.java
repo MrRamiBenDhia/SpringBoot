@@ -12,4 +12,6 @@ public interface IserviceEquipe {
     Equipe updateEquipe (Equipe e);
 
     Equipe retrieveEquipe (Integer idEquipe);
+
+    void removeEquipe(int id);
 }

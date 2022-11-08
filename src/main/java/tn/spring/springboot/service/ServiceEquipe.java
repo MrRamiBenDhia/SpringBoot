@@ -31,4 +31,9 @@ public class ServiceEquipe implements IserviceEquipe{
     public Equipe retrieveEquipe(Integer idEquipe) {
         return er.findById(idEquipe).get();
     }
+
+    @Override
+    public void removeEquipe(int id) {
+
+    }
 }

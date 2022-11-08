@@ -1,5 +1,6 @@
 package tn.spring.springboot.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -19,6 +20,7 @@ public class Departement implements Serializable {
     int IdDepartement;
     String nomDepartement;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "departement")
+    @JsonIgnore
     private Set<Etudiant> etudiants;
 
 

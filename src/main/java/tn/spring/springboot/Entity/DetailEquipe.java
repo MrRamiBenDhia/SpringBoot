@@ -1,5 +1,6 @@
 package tn.spring.springboot.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -18,5 +19,6 @@ public class DetailEquipe implements Serializable {
     int salle;
     String thematique;
     @OneToOne(mappedBy = "detailEquipe")
+    @JsonIgnore
     private Equipe equipe;
 }

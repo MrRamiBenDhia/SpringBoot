@@ -1,5 +1,6 @@
 package tn.spring.springboot.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -16,7 +17,7 @@ public class Etudiant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="IdEtudiant")
-    long IdEtudiant;
+    int IdEtudiant;
     String Prenom;
     String nomE;
     @Enumerated(EnumType.STRING)
@@ -24,8 +25,10 @@ public class Etudiant implements Serializable {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "etudiant")
     private Set< Contrat > Contrats;
     @ManyToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set< Equipe > equipes;
     @ManyToOne
+    @JsonIgnore
     private Departement departement;
 
 

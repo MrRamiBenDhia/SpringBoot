@@ -1,5 +1,6 @@
 package tn.spring.springboot.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -18,6 +19,7 @@ public class Universite implements Serializable {
     int IdUniversite;
     String nomUni;
     @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Departement> departements;
 
 }

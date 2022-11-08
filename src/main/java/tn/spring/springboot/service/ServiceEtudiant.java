@@ -12,9 +12,10 @@ import tn.spring.springboot.reposotry.EquipeRepo;
 import tn.spring.springboot.reposotry.EtudiantRepo;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
-public class ServiceEtudiant implements IserviceEtudiant{
+public class ServiceEtudiant implements IserviceEtudiant {
 
     @Autowired
     ContratRepo cr;
@@ -24,6 +25,7 @@ public class ServiceEtudiant implements IserviceEtudiant{
     DepartementRepo dr;
     @Autowired
     EtudiantRepo er;
+
     @Override
     public List<Etudiant> retrieveAllEtudiants() {
         return er.findAll();
@@ -46,7 +48,7 @@ public class ServiceEtudiant implements IserviceEtudiant{
 
     @Override
     public void assignEtudiantToDepartement(Integer etudiantId, Integer departementId) {
-        Etudiant e= er.findById(etudiantId).get();
+        Etudiant e = er.findById(etudiantId).get();
 
         Departement d = dr.findById(departementId).get();
         e.setDepartement(d);
@@ -57,26 +59,62 @@ public class ServiceEtudiant implements IserviceEtudiant{
     public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe) {
 
         //! error to fix !!
-        Etudiant et = er.findById((int) e.getIdEtudiant()).get();
+        //   Etudiant et = er.findById((int) e.getIdEtudiant()).get();
 
         Contrat c = cr.findById(idContrat).get();
         Equipe eq = eqr.findById(idEquipe).get();
 
-        eq.getEtudiants().add(et);
-        et.getEquipes().add(eq);
+        c.setEtudiant(e);
+        eq.getEtudiants().add(e);
 
-        et.getContrats().add(c);
-        c.setEtudiant(et);
+        er.save(e);
 
-        cr.save(c);
-        eqr.save(eq);
-        er.save(et);
+
+//        e.getEquipes().add(eq);
+//
+//        e.getContrats().add(c);
+//        c.setEtudiant(e);
+
+//        eqr.save(eq);
+//        cr.save(c);
+        return null;
+    }
+
+    @Override
+    public Etudiant addEtudiantToEquipeAndContract(Integer idE, Integer idContrat, Integer idEquipe) {
+
+        Etudiant e = er.findById(idE).get();
+                System.out.println("et = "+e);
+        Contrat c = cr.findById(idContrat).get();
+                System.out.println("c = "+c);
+        Equipe eq = eqr.findById(idEquipe).get();
+                System.out.println("eq = "+eq);
+
+
+        c.setEtudiant(e);
+//                .add(e);
+
+//        Set<Etudiant> haja ;
+//                haja = eq.getEtudiants();
+//                if (haja.isEmpty()){
+//
+//                }
+//        haja.add(e);
+//        System.console().printf("HAjaa = ",haja);
+//        System.console().printf("et = ",e);
+//        System.console().printf("Cont = ",c);
+//        System.console().printf("eq = ",eq);
+//        eq.setEtudiants(haja);
+
+//        cr.save(c);
+//        eqr.save(eq);
+
         return null;
     }
 
     @Override
     public void removeEtudiant(Integer idEtudiant) {
-er.deleteById(idEtudiant);
+        er.deleteById(idEtudiant);
     }
 
 }

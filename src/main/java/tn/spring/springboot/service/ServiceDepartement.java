@@ -32,4 +32,9 @@ public class ServiceDepartement implements IserviceDepartement{
     public Departement retrieveDepartement(Integer idDepart) {
         return dr.findById(idDepart).get();
     }
+
+    @Override
+    public void removeDepartement(Integer idEtudiant) {
+
+    }
 }

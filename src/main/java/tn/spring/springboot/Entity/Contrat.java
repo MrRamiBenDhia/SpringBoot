@@ -1,5 +1,6 @@
 package tn.spring.springboot.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -25,5 +26,7 @@ public class Contrat implements Serializable {
     boolean Archive;
     int montantContrat;
     @ManyToOne
+    @JsonIgnore
+
     private Etudiant etudiant;
 }

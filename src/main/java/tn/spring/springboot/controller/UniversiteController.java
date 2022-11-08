@@ -18,7 +18,7 @@ public class UniversiteController {
     IserviceUniversite iserviceUniversite;
 
 
-    @GetMapping("/addDepToUni/{idDep}/{idUni}")
+    @PostMapping("/addDepToUni/{idDep}/{idUni}")
     public void assignDepartementtoUniversity(@PathVariable("idDep")Integer idDep,@PathVariable("idUni") Integer idUniversite) {
 
         iserviceUniversite.assignDepartementtoUniversity(idDep, idUniversite);
