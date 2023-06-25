@@ -12,4 +12,12 @@ public interface EtudiantRepo extends JpaRepository<Etudiant, Integer> {
     @Query("SELECT e FROM Etudiant e WHERE e.Prenom =:prenomEt  and e.nomE=: nomEt ")
     Etudiant getEtudiantByNomPrenom(@Param("nom") String nomEt,@Param("prenom")String prenomEt);
 
+
+
+
+@Query("SELECT e FROM Etudiant e WHERE e.Prenom =:prenomEt  and e.nomE=: nomEt ")
+    Etudiant getEtudiantsByDepartement(@Param("nom") String nomEt,@Param("prenom")String prenomEt);
+
+
+
 }
